@@ -8,6 +8,8 @@
 
 import UIKit
 
+let animationResumeAfter: NSTimeInterval = 4 // should be higher than the greatest toTime, animationResumeAfter - toTime = animation pause duration
+
 class ViewController: UIViewController {
     
     var dots = [AnimationDot]()
@@ -20,10 +22,10 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        let animationDot = AnimationDot(color: UIColor.redColor(), position: CGPoint(x: 50, y: 50), radius: 10, toTime: 1, fromTime: 8)
-        let animationDot2 = AnimationDot(color: UIColor.blackColor(), position: CGPoint(x: 100, y: 100), radius: 20, toTime: 2, fromTime: 7)
-        let animationDot3 = AnimationDot(color: UIColor.greenColor(), position: CGPoint(x: 200, y: 200), radius: 30, toTime: 3, fromTime: 6)
-        let animationDot4 = AnimationDot(color: UIColor.orangeColor(), position: CGPoint(x: 300, y: 300), radius: 40, toTime: 4, fromTime: 5)
+        let animationDot = AnimationDot(color: UIColor.redColor(), position: CGPoint(x: 50, y: 50), radius: 10, toTime: 2.5, fromTime: 2)
+        let animationDot2 = AnimationDot(color: UIColor.blackColor(), position: CGPoint(x: 100, y: 100), radius: 20, toTime: 2.5, fromTime: 2)
+        let animationDot3 = AnimationDot(color: UIColor.greenColor(), position: CGPoint(x: 200, y: 200), radius: 30, toTime: 2.5, fromTime: 2)
+        let animationDot4 = AnimationDot(color: UIColor.orangeColor(), position: CGPoint(x: 300, y: 300), radius: 40, toTime: 2.5, fromTime: 2)
 
         view.addSubview(animationDot)
         dots.append(animationDot)

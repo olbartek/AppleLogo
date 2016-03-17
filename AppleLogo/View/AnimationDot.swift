@@ -16,8 +16,6 @@ class AnimationDot: UIView {
     var toTime      : NSTimeInterval = 4
     var fromTime    : NSTimeInterval = 4
     
-    var wholeAnimationTime: NSTimeInterval = 10
-    
     init(color: UIColor, position: CGPoint, radius: CGFloat, toTime: NSTimeInterval, fromTime: NSTimeInterval) {
         super.init(frame: CGRect(origin: CGPointMake(position.x - radius, position.y - radius), size: CGSize(width: 2*radius, height: 2*radius)))
         self.position = position
@@ -35,7 +33,7 @@ class AnimationDot: UIView {
     
     func animateView(view: UIView) {
         self.animateViewToPositon(view)
-        let resumeAnimation = dispatch_time(DISPATCH_TIME_NOW, Int64(wholeAnimationTime * Double(NSEC_PER_SEC)))
+        let resumeAnimation = dispatch_time(DISPATCH_TIME_NOW, Int64(animationResumeAfter * Double(NSEC_PER_SEC)))
         dispatch_after(resumeAnimation, dispatch_get_main_queue()) {
             self.animateViewFromPostion(view)
         }
@@ -74,10 +72,9 @@ class AnimationDot: UIView {
         
         self.layer.addAnimation(animation, forKey: "\(position.x)\(position.y)")
         
-        let removeTime = dispatch_time(DISPATCH_TIME_NOW, Int64(animation.duration * Double(NSEC_PER_SEC)))
+        let removeTime = dispatch_time(DISPATCH_TIME_NOW, Int64((animation.duration - 0.1) * Double(NSEC_PER_SEC)))
         dispatch_after(removeTime, dispatch_get_main_queue()) {
             self.removeFromSuperview()
-
         }
     }
 }
