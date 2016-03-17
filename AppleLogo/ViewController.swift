@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         view.addSubview(animationDot)
         //animationDot.calculateBezierPath(view)
         animationDot.animateViewMovment(view)
-        let stopTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)))
+        let stopTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Double(NSEC_PER_SEC)))
         dispatch_after(stopTime, dispatch_get_main_queue()) {
             self.pauseLayer(animationDot.layer)
         }
