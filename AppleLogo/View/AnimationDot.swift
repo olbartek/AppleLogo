@@ -13,11 +13,17 @@ class AnimationDot: UIView {
     var color       : UIColor?
     var position    : CGPoint?
     var radius      : CGFloat?
+    var toTime      : NSTimeInterval = 4
+    var fromTime    : NSTimeInterval = 4
     
-    init(color: UIColor, position: CGPoint, radius: CGFloat) {
+    var wholeAnimationTime: NSTimeInterval = 10
+    
+    init(color: UIColor, position: CGPoint, radius: CGFloat, toTime: NSTimeInterval, fromTime: NSTimeInterval) {
         super.init(frame: CGRect(origin: CGPointMake(position.x - radius, position.y - radius), size: CGSize(width: 2*radius, height: 2*radius)))
         self.position = position
         self.radius = radius
+        self.toTime = toTime
+        self.fromTime = fromTime
         backgroundColor = color
         self.layer.cornerRadius = radius
         self.clipsToBounds = true
@@ -25,6 +31,14 @@ class AnimationDot: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func animateView(view: UIView) {
+        self.animateViewToPositon(view)
+        let resumeAnimation = dispatch_time(DISPATCH_TIME_NOW, Int64(wholeAnimationTime * Double(NSEC_PER_SEC)))
+        dispatch_after(resumeAnimation, dispatch_get_main_queue()) {
+            self.animateViewFromPostion(view)
+        }
     }
     
     func animateViewToPositon(view: UIView) {
@@ -39,7 +53,7 @@ class AnimationDot: UIView {
         let endPointObj = NSValue(CGPoint: endPoint)
         animation.toValue = endPointObj
         
-        animation.duration = 3
+        animation.duration = toTime
         
         self.layer.addAnimation(animation, forKey: "\(position.x)\(position.y)")
     }
@@ -56,7 +70,7 @@ class AnimationDot: UIView {
         let endPointObj = NSValue(CGPoint: endPoint)
         animation.toValue = endPointObj
         
-        animation.duration = 3
+        animation.duration = fromTime
         
         self.layer.addAnimation(animation, forKey: "\(position.x)\(position.y)")
         
