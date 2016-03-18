@@ -20,7 +20,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Arc-o9-9Fo" customClass="AnimatedAppleLogoView" customModule="AppleLogo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Arc-o9-9Fo" secondAttribute="height" multiplier="1:1" id="UI1-Yn-gVM"/>
                                 </constraints>

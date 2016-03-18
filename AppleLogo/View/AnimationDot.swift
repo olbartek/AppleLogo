@@ -110,37 +110,39 @@ class AnimationDot: UIView {
     }
     
     func animateViewToPositon(view: UIView) {
-        guard let viewCenter        = viewCenter else { return }
-        let animation               = CABasicAnimation(keyPath: "viewCenter")
+        guard let origin            = origin else { return }
+        let animation               = CABasicAnimation(keyPath: "position")
         
-        let startPoint              = CGPoint(x: viewCenter.x, y: view.frame.height)
+        let startPoint              = CGPoint(x: origin.x, y: view.frame.height)
         let startPointObj           = NSValue(CGPoint: startPoint)
         animation.fromValue         = startPointObj
         
-        let endPoint                = CGPoint(x: viewCenter.x, y: viewCenter.y)
+        let endPoint                = CGPoint(x: origin.x, y: origin.y)
         let endPointObj             = NSValue(CGPoint: endPoint)
         animation.toValue           = endPointObj
         
         animation.duration          = toTime
         
-        self.layer.addAnimation(animation, forKey: "\(viewCenter.x)\(viewCenter.y)")
+        //self.layer.addAnimation(animation, forKey: "\(viewCenter.x)\(viewCenter.y)") -> dales to w jakims konkretnym celu?
+        self.layer.addAnimation(animation, forKey: "positionAnimation")
     }
     
     func animateViewFromPostion(view: UIView) {
-        guard let viewCenter        = viewCenter else { return }
-        let animation               = CABasicAnimation(keyPath: "viewCenter")
+        guard let origin            = origin else { return }
+        let animation               = CABasicAnimation(keyPath: "position")
         
-        let startPoint              = CGPoint(x: viewCenter.x, y: viewCenter.y)
+        let startPoint              = CGPoint(x: origin.x, y: origin.y)
         let startPointObj           = NSValue(CGPoint: startPoint)
         animation.fromValue         = startPointObj
         
-        let endPoint                = CGPoint(x: viewCenter.x, y: -view.frame.height)
+        let endPoint                = CGPoint(x: origin.x, y: -view.frame.height)
         let endPointObj             = NSValue(CGPoint: endPoint)
         animation.toValue           = endPointObj
         
         animation.duration          = fromTime
         
-        self.layer.addAnimation(animation, forKey: "\(viewCenter.x)\(viewCenter.y)")
+        //self.layer.addAnimation(animation, forKey: "\(viewCenter.x)\(viewCenter.y)")
+        self.layer.addAnimation(animation, forKey: "positionAnimation")
         
         let removeTime = dispatch_time(DISPATCH_TIME_NOW, Int64((animation.duration - 0.1) * Double(NSEC_PER_SEC)))
         dispatch_after(removeTime, dispatch_get_main_queue()) {
