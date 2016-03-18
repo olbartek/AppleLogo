@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EA16FC11C9B482B001B8695 /* bubbles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EA16FC01C9B482B001B8695 /* bubbles.plist */; };
+		4EA16FC51C9C16C7001B8695 /* AnimatedAppleLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA16FC41C9C16C7001B8695 /* AnimatedAppleLogoView.swift */; };
 		BE7C1EBC1C9B2BF20018A52C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C1EBB1C9B2BF20018A52C /* AppDelegate.swift */; };
 		BE7C1EBE1C9B2BF20018A52C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C1EBD1C9B2BF20018A52C /* ViewController.swift */; };
 		BE7C1EC11C9B2BF20018A52C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7C1EBF1C9B2BF20018A52C /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4EA16FC01C9B482B001B8695 /* bubbles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bubbles.plist; sourceTree = "<group>"; };
+		4EA16FC41C9C16C7001B8695 /* AnimatedAppleLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedAppleLogoView.swift; sourceTree = "<group>"; };
 		BE7C1EB81C9B2BF20018A52C /* AppleLogo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleLogo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7C1EBB1C9B2BF20018A52C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE7C1EBD1C9B2BF20018A52C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				BE7C1EC41C9B2BF20018A52C /* LaunchScreen.storyboard */,
 				BE7C1EC71C9B2BF20018A52C /* Info.plist */,
 				BE7C1ECD1C9B2C1A0018A52C /* AnimationDot.swift */,
+				4EA16FC01C9B482B001B8695 /* bubbles.plist */,
+				4EA16FC41C9C16C7001B8695 /* AnimatedAppleLogoView.swift */,
 			);
 			path = AppleLogo;
 			sourceTree = "<group>";
@@ -127,6 +133,7 @@
 			files = (
 				BE7C1EC61C9B2BF20018A52C /* LaunchScreen.storyboard in Resources */,
 				BE7C1EC31C9B2BF20018A52C /* Assets.xcassets in Resources */,
+				4EA16FC11C9B482B001B8695 /* bubbles.plist in Resources */,
 				BE7C1EC11C9B2BF20018A52C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +148,7 @@
 				BE7C1EBE1C9B2BF20018A52C /* ViewController.swift in Sources */,
 				BE7C1ECE1C9B2C1A0018A52C /* AnimationDot.swift in Sources */,
 				BE7C1EBC1C9B2BF20018A52C /* AppDelegate.swift in Sources */,
+				4EA16FC51C9C16C7001B8695 /* AnimatedAppleLogoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +296,7 @@
 				BE7C1ECC1C9B2BF20018A52C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

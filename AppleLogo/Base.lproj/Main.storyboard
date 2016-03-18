@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AppleLogo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,71 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Arc-o9-9Fo" customClass="AnimatedAppleLogoView" customModule="AppleLogo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Arc-o9-9Fo" secondAttribute="height" multiplier="1:1" id="UI1-Yn-gVM"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="UI1-Yn-gVM"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="UI1-Yn-gVM"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Arc-o9-9Fo" secondAttribute="trailing" constant="20" id="BGz-Ex-3Am"/>
+                            <constraint firstItem="Arc-o9-9Fo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dIZ-rk-fFT"/>
+                            <constraint firstAttribute="trailing" secondItem="Arc-o9-9Fo" secondAttribute="trailing" id="erx-CN-klt"/>
+                            <constraint firstItem="Arc-o9-9Fo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gzv-2t-Bcc"/>
+                            <constraint firstItem="Arc-o9-9Fo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="uHp-UA-HQi"/>
+                            <constraint firstItem="Arc-o9-9Fo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zik-6I-2AG"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Arc-o9-9Fo" secondAttribute="bottom" id="zvJ-20-u5m"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Arc-o9-9Fo"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="BGz-Ex-3Am"/>
+                                <exclude reference="dIZ-rk-fFT"/>
+                                <exclude reference="erx-CN-klt"/>
+                                <exclude reference="gzv-2t-Bcc"/>
+                                <exclude reference="uHp-UA-HQi"/>
+                                <exclude reference="zik-6I-2AG"/>
+                                <exclude reference="zvJ-20-u5m"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Arc-o9-9Fo"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="BGz-Ex-3Am"/>
+                                <exclude reference="dIZ-rk-fFT"/>
+                                <include reference="erx-CN-klt"/>
+                                <include reference="gzv-2t-Bcc"/>
+                                <exclude reference="uHp-UA-HQi"/>
+                                <include reference="zik-6I-2AG"/>
+                                <include reference="zvJ-20-u5m"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="animatedView" destination="Arc-o9-9Fo" id="HB3-zZ-FB7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="349.5" y="304.5"/>
         </scene>
     </scenes>
 </document>
