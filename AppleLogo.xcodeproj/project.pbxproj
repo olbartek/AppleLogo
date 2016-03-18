@@ -15,6 +15,7 @@
 		BE7C1EC31C9B2BF20018A52C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE7C1EC21C9B2BF20018A52C /* Assets.xcassets */; };
 		BE7C1EC61C9B2BF20018A52C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7C1EC41C9B2BF20018A52C /* LaunchScreen.storyboard */; };
 		BE7C1ECE1C9B2C1A0018A52C /* AnimationDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C1ECD1C9B2C1A0018A52C /* AnimationDot.swift */; };
+		BE90F3BA1C9C57DD0013CBB1 /* Double+RandomNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90F3B91C9C57DD0013CBB1 /* Double+RandomNumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		BE7C1EC51C9B2BF20018A52C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE7C1EC71C9B2BF20018A52C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE7C1ECD1C9B2C1A0018A52C /* AnimationDot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimationDot.swift; path = View/AnimationDot.swift; sourceTree = "<group>"; };
+		BE90F3B91C9C57DD0013CBB1 /* Double+RandomNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+RandomNumber.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				BE7C1ECD1C9B2C1A0018A52C /* AnimationDot.swift */,
 				4EA16FC01C9B482B001B8695 /* bubbles.plist */,
 				4EA16FC41C9C16C7001B8695 /* AnimatedAppleLogoView.swift */,
+				BE90F3B91C9C57DD0013CBB1 /* Double+RandomNumber.swift */,
 			);
 			path = AppleLogo;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE90F3BA1C9C57DD0013CBB1 /* Double+RandomNumber.swift in Sources */,
 				BE7C1EBE1C9B2BF20018A52C /* ViewController.swift in Sources */,
 				BE7C1ECE1C9B2C1A0018A52C /* AnimationDot.swift in Sources */,
 				BE7C1EBC1C9B2BF20018A52C /* AppDelegate.swift in Sources */,

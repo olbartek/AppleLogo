@@ -33,31 +33,11 @@ class AnimatedAppleLogoView: UIView {
     }
     
     // MARK: Animations
-    
-    func animateExampleViews() {
-        let animationDot        = AnimationDot(color: UIColor.redColor(), center: CGPoint(x: 50, y: 50), radius: 10, toTime: 2.5, fromTime: 2)
-        let animationDot2       = AnimationDot(color: UIColor.blackColor(), center: CGPoint(x: 100, y: 100), radius: 20, toTime: 2.5, fromTime: 2)
-        let animationDot3       = AnimationDot(color: UIColor.greenColor(), center: CGPoint(x: 200, y: 200), radius: 30, toTime: 2.5, fromTime: 2)
-        let animationDot4       = AnimationDot(color: UIColor.orangeColor(), center: CGPoint(x: 300, y: 300), radius: 40, toTime: 2.5, fromTime: 2)
-        
-        addSubview(animationDot)
-        dots.append(animationDot)
-        addSubview(animationDot2)
-        dots.append(animationDot2)
-        addSubview(animationDot3)
-        dots.append(animationDot3)
-        addSubview(animationDot4)
-        dots.append(animationDot4)
-        
-        dots.forEach() { dot in
-            dot.animateView(self)
-        }
-    }
-    
+
     func animateAppleLogo() {
         guard let path = NSBundle.mainBundle().pathForResource("bubbles", ofType: "plist"), plistArray = NSArray(contentsOfFile: path) as? [NSDictionary] else { return }
         for bubbleInfo in plistArray {
-            let newBubble           = AnimationDot(dictionary: bubbleInfo, toTime: Double.random(0.5, max: 2.5), fromTime: Double.random(1, max: 2.5), scaleFactor: scaleFactor)
+            let newBubble           = AnimationDot(dictionary: bubbleInfo, toTime: Double.random(1, max: 2.5), fromTime: Double.random(1, max: 2.5), scaleFactor: scaleFactor)
             addSubview(newBubble)
             dots.append(newBubble)
         }
@@ -65,18 +45,5 @@ class AnimatedAppleLogoView: UIView {
             dot.animateView(self)
         }
         
-    }
-}
-
-public extension Double {
-    
-    public static var random:Double {
-        get {
-            return Double(arc4random()) / 0xFFFFFFFF
-        }
-    }
-
-    public static func random(min: Double, max: Double) -> Double {
-        return Double.random * (max - min) + min
     }
 }

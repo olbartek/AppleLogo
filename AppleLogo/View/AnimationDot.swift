@@ -28,29 +28,13 @@ class AnimationDot: UIView {
     var origin      : CGPoint?
     var viewCenter  : CGPoint?
     var radius      : CGFloat?
-    var toTime      : NSTimeInterval = 4
-    var fromTime    : NSTimeInterval = 4
+    var toTime      : NSTimeInterval = 1
+    var fromTime    : NSTimeInterval = 1
     var scaleFactor : CGFloat = 1.0;
     
     let animationResumeAfter: NSTimeInterval    = 4 // should be higher than the greatest toTime, animationResumeAfter - toTime = animation pause duration
     
     // MARK: Initialization
-    
-    init(color: UIColor, center: CGPoint, radius: CGFloat, toTime: NSTimeInterval, fromTime: NSTimeInterval) {
-        let origin              = CGPointMake(center.x - radius, center.y - radius)
-        let size                = CGSize(width: 2 * radius, height: 2 * radius);
-        let frame               = CGRect(origin: origin, size: size)
-        super.init(frame: frame)
-        self.origin             = origin
-        self.viewCenter         = center
-        self.radius             = radius
-        self.toTime             = toTime
-        self.fromTime           = fromTime
-        backgroundColor         = color
-        self.layer.cornerRadius = radius
-        self.clipsToBounds      = true
-    }
-    
     init(dictionary: NSDictionary, toTime: NSTimeInterval, fromTime: NSTimeInterval, scaleFactor scale: CGFloat) {
         let x = dictionary["x"] as! CGFloat, y = dictionary["y"] as! CGFloat, side = dictionary["side"] as! CGFloat, colorString = dictionary["color"] as! String
         self.scaleFactor        = scale
@@ -110,16 +94,17 @@ class AnimationDot: UIView {
     }
     
     func animateViewToPositon(view: UIView) {
-        let animation               = CABasicAnimation(keyPath: "position")
+        let animation               = CAKeyframeAnimation(keyPath: "position")
+        let path = UIBezierPath()
         
         let startPoint              = CGPoint(x: center.x, y: view.frame.height)
-        let startPointObj           = NSValue(CGPoint: startPoint)
-        animation.fromValue         = startPointObj
-        
         let endPoint                = CGPoint(x: center.x, y: center.y)
-        let endPointObj             = NSValue(CGPoint: endPoint)
-        animation.toValue           = endPointObj
         
+        path.moveToPoint(startPoint)
+        path.addLineToPoint(endPoint)
+        
+        animation.path              = path.CGPath
+        animation.calculationMode   = kCAAnimationCubicPaced
         animation.duration          = toTime
         animation.timingFunction    = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
 
@@ -127,18 +112,18 @@ class AnimationDot: UIView {
     }
     
     func animateViewFromPostion(view: UIView) {
-        let animation               = CABasicAnimation(keyPath: "position")
-        
+        let animation               = CAKeyframeAnimation(keyPath: "position")
+        let path = UIBezierPath()
+
         let startPoint              = CGPoint(x: center.x, y: center.y)
-        let startPointObj           = NSValue(CGPoint: startPoint)
-        animation.fromValue         = startPointObj
-        
         let endPoint                = CGPoint(x: center.x, y: -view.frame.height)
-        let endPointObj             = NSValue(CGPoint: endPoint)
-        animation.toValue           = endPointObj
         
+        path.moveToPoint(startPoint)
+        path.addLineToPoint(endPoint)
+        
+        animation.path              = path.CGPath
+        animation.calculationMode   = kCAAnimationCubicPaced
         animation.duration          = fromTime
-        
         animation.timingFunction    = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
 
         self.layer.addAnimation(animation, forKey: "positionAnimation")
