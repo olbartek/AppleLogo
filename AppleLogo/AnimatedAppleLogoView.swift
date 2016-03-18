@@ -57,7 +57,7 @@ class AnimatedAppleLogoView: UIView {
     func animateAppleLogo() {
         guard let path = NSBundle.mainBundle().pathForResource("bubbles", ofType: "plist"), plistArray = NSArray(contentsOfFile: path) as? [NSDictionary] else { return }
         for bubbleInfo in plistArray {
-            let newBubble           = AnimationDot(dictionary: bubbleInfo, toTime: Double.random(0.1, max: 2.5), fromTime: Double.random(1, max: 2.5), scaleFactor: scaleFactor)
+            let newBubble           = AnimationDot(dictionary: bubbleInfo, toTime: Double.random(0.5, max: 2.5), fromTime: Double.random(1, max: 2.5), scaleFactor: scaleFactor)
             addSubview(newBubble)
             dots.append(newBubble)
         }
