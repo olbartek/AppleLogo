@@ -110,41 +110,40 @@ class AnimationDot: UIView {
     }
     
     func animateViewToPositon(view: UIView) {
-        guard let origin            = origin else { return }
         let animation               = CABasicAnimation(keyPath: "position")
         
-        let startPoint              = CGPoint(x: origin.x, y: view.frame.height)
+        let startPoint              = CGPoint(x: center.x, y: view.frame.height)
         let startPointObj           = NSValue(CGPoint: startPoint)
         animation.fromValue         = startPointObj
         
-        let endPoint                = CGPoint(x: origin.x, y: origin.y)
+        let endPoint                = CGPoint(x: center.x, y: center.y)
         let endPointObj             = NSValue(CGPoint: endPoint)
         animation.toValue           = endPointObj
         
         animation.duration          = toTime
-        
-        //self.layer.addAnimation(animation, forKey: "\(viewCenter.x)\(viewCenter.y)") -> dales to w jakims konkretnym celu?
+        animation.timingFunction    = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+
         self.layer.addAnimation(animation, forKey: "positionAnimation")
     }
     
     func animateViewFromPostion(view: UIView) {
-        guard let origin            = origin else { return }
         let animation               = CABasicAnimation(keyPath: "position")
         
-        let startPoint              = CGPoint(x: origin.x, y: origin.y)
+        let startPoint              = CGPoint(x: center.x, y: center.y)
         let startPointObj           = NSValue(CGPoint: startPoint)
         animation.fromValue         = startPointObj
         
-        let endPoint                = CGPoint(x: origin.x, y: -view.frame.height)
+        let endPoint                = CGPoint(x: center.x, y: -view.frame.height)
         let endPointObj             = NSValue(CGPoint: endPoint)
         animation.toValue           = endPointObj
         
         animation.duration          = fromTime
         
-        //self.layer.addAnimation(animation, forKey: "\(viewCenter.x)\(viewCenter.y)")
+        animation.timingFunction    = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+
         self.layer.addAnimation(animation, forKey: "positionAnimation")
         
-        let removeTime = dispatch_time(DISPATCH_TIME_NOW, Int64((animation.duration - 0.1) * Double(NSEC_PER_SEC)))
+        let removeTime = dispatch_time(DISPATCH_TIME_NOW, Int64((animation.duration - 0.5) * Double(NSEC_PER_SEC)))
         dispatch_after(removeTime, dispatch_get_main_queue()) {
             self.removeFromSuperview()
         }
