@@ -13,8 +13,7 @@ class AnimatedAppleLogoView: UIView {
     
     // MARK: Properties
     var dots                                    = [AnimationDot]()
-    var scaleFactor: CGFloat                    = 1.0               // default View has  600 pts width, so when it will be different the scaleFactor will change
-    
+    var scaleFactor: CGFloat                    = 1.0
     let defaultSideLength: CGFloat              = 600.0
     
     // MARK: Initialization
@@ -28,8 +27,10 @@ class AnimatedAppleLogoView: UIView {
     }
     
     // MARK: Configuration
-    func calculateScaleFactor() {
-        scaleFactor = bounds.size.width / defaultSideLength;
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        scaleFactor = bounds.size.width / defaultSideLength
     }
     
     // MARK: Animations
@@ -37,7 +38,7 @@ class AnimatedAppleLogoView: UIView {
     func animateAppleLogo() {
         guard let path = NSBundle.mainBundle().pathForResource("bubbles", ofType: "plist"), plistArray = NSArray(contentsOfFile: path) as? [NSDictionary] else { return }
         for bubbleInfo in plistArray {
-            let newBubble           = AnimationDot(dictionary: bubbleInfo, toTime: Double.random(1, max: 2.5), fromTime: Double.random(1, max: 2.5), scaleFactor: scaleFactor)
+            let newBubble = AnimationDot(dictionary: bubbleInfo, toTime: Double.random(1, max: 2.5), fromTime: Double.random(1, max: 2.5), scaleFactor: scaleFactor)
             addSubview(newBubble)
             dots.append(newBubble)
         }
